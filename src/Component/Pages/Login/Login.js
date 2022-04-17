@@ -90,7 +90,7 @@ const Login = () => {
             variant="primary"
             type="submit"
           >
-            Sign In
+            Log In
           </Button>
           <p className="mt-3">
             {" "}

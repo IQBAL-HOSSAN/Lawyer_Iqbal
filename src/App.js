@@ -9,6 +9,7 @@ import Services from "./Component/Pages/Services/Services";
 import SignUp from "./Component/Pages/SignUp/SignUp";
 import Footer from "./Component/Share/Footer/Footer";
 import Header from "./Component/Share/Header/Header";
+import NotFound from "./Component/NotFound/NotFound";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
