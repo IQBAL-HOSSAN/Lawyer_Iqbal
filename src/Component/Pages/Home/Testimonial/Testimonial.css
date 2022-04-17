@@ -1,0 +1,19 @@
+
+#testimonial{
+    background-color: #3333;
+    /* background-image: url(../../../../imgs/testimonial-bg.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 200px 0;
+}
+
+#testimonial .under-line{
+    width:80px;
+    height: 3px;
+}
+.testimonial-text-banner{
+    margin-top: 100px;
+}
+.testimonial-text-banner{
+    z-index: 999;
+}

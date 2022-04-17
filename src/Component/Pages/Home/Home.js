@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import Services from "../Services/Services";
 import Banner from "./Banner/Banner";
+import Consultation from "./Consultation/Consultation";
+import Testimonial from "./Testimonial/Testimonial";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -26,6 +28,7 @@ const Home = () => {
           </Row>
         </Container>
       }
+      <Consultation></Consultation>
     </div>
   );
 };
