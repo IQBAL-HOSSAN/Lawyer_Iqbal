@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "img": "https://www.sharjeelanjum.com/html/lawfirm/demo/images/lawyer/3.jpg",
+        "name": "Car Accident",
+        "description":"Accidents happen. We hear it all the time, and usually chalk it up to bad luck or being in the wrong place at the wrong time. But sometimes an accident and a resulting injury are somebody’s fault."
+      },
+    {
+        "id": "2",
+        "img": "https://www.sharjeelanjum.com/html/lawfirm/demo/images/lawyer/2.jpg",
+        "name": "Litigation",
+        "description":"Litigation, in ordinary speech, refers to actions contested in court; this involves a claim, a dispute or conflict, and the use of a specific institution, the court, to resolve the conflict or dispute."
+      },
+    {
+        "id": "3",
+        "img": "https://www.sharjeelanjum.com/html/lawfirm/demo/images/lawyer/1.jpg",
+        "name": "Divorce",
+        "description":"Divorce entails the cancelation or reorganisation of the legal responsibilities of marriage by dissolving the bonds of marriage between a married couple under the rule of law of a particular state or country."
+      },
+    {
+        "id": "4",
+        "img": "https://www.sharjeelanjum.com/html/lawfirm/demo/images/lawyer/4.jpg",
+        "name": "Drug",
+        "description":"All medicines for internal or external use of human beings or animals, and all substances intended to be used for or in the treatment, mitigation or prevention of diseases in human beings or animals, not being medicines and substances exclusively used or prepared for use in accordance with the ayurvedic, unani, homoeopathic or biochemic system of medicine."
+      },
+    {
+        "id": "5",
+        "img": "https://www.sharjeelanjum.com/html/lawfirm/demo/images/lawyer/5.jpg",
+        "name": "Personal Injury",
+        "description":"Personal law is defined as a law that applies to a certain class or group of people or a particular person, based on the religions, faith, and culture."
+      },
+    {
+        "id": "6",
+        "img": "https://www.sharjeelanjum.com/html/lawfirm/demo/images/lawyer/6.jpg",
+        "name": "Criminal Defence",
+        "description":"Criminal law is the body of law that relates to crime. It prescribes conduct perceived as threatening, harmful, or otherwise endangering to the property, health, safety, and moral welfare of people inclusive of one's self."
+      }
+]
