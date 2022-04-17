@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Col } from "react-bootstrap";
 
 const Services = ({ service }) => {
-  const { img, name, description } = service;
+  const { img, name, description, price } = service;
 
   const sliceDescription = description.slice(0, 120);
   return (
@@ -13,7 +13,10 @@ const Services = ({ service }) => {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{sliceDescription}...</Card.Text>
-            <button>Purchase Now</button>
+            <p>
+              <strong>Fee: {price}</strong>
+            </p>
+            <a className="btn btn-danger">Book Now</a>
           </Card.Body>
         </Card>
       </Col>
