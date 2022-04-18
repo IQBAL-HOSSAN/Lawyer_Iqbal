@@ -1,7 +1,16 @@
 <h2>Site Name: Lawyer Iqbal</h2>
 
-<h3>Website Live Link: <a>https://assignment-10-lawyer.web.app/</a></h3>
+Website Live Link: [https://assignment-10-lawyer.web.app/](https://assignment-10-lawyer.web.app/).
 
+# That features you can get from this site:
+
+<ul>
+    <li>Different services about the law</li>
+    <li>High security about your information</li>
+    <li>Login & Register features</li>
+    <li>To know lot of things about different laws</li>
+    <li>You can easily reach me through the site.</li>
+</ul>
 # That technology uses in this site
 
 <ul>
