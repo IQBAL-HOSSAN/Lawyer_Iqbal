@@ -1,86 +1,85 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
-import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
-  useSignInWithFacebook,
-  useSignInWithGithub,
-  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "./SocialLogin/SocialLogin";
+import { async } from "@firebase/util";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
   const [agree, setAgree] = useState(false);
-
-  const [signInWithEmailAndPassword, user] =
-    useSignInWithEmailAndPassword(auth);
-
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
-  // console.log(error);
-  const [signInWithGithub] = useSignInWithGithub(auth);
-  const [signInWithFacebook] = useSignInWithFacebook(auth);
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || "/";
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user]);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
-  const handleSignIn = (event) => {
+  const [sendPasswordResetEmail, sending, resetError] =
+    useSendPasswordResetEmail(auth);
+
+  let showError;
+  if (error || resetError) {
+    showError = (
+      <div>
+        <p className="text-danger"> Error: {error.message}</p>
+      </div>
+    );
+  }
+  // sign in with email and password
+  const handleLogIn = async (event) => {
     event.preventDefault();
 
-    setEmail(event.target.email.value);
-    setPassword(event.target.password.value);
-    signInWithEmailAndPassword(email, password);
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    await signInWithEmailAndPassword(email, password);
 
     navigate(from, { replace: true });
+    console.log(email, password);
   };
 
-  // handle sign in with google btn
-  const handleSignInWithGoogle = async () => {
-    await signInWithGoogle();
-    navigate("/");
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
   };
 
-  // facebook sign in
-  const handleFacebookLogin = async () => {
-    await signInWithFacebook();
-    navigate("/");
-  };
-
-  // Sign In with github
-  const handleSignInWithGithub = async () => {
-    await signInWithGithub();
-    navigate("/");
-  };
   return (
     <div className="my-5">
       <h2 className="text-center mb-3">Please Log In</h2>
       <div className="w-25 mx-auto">
-        <Form onSubmit={handleSignIn} className="">
+        <Form onSubmit={handleLogIn} className="">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" name="email" placeholder="Enter email" />
+            <Form.Control
+              ref={emailRef}
+              type="email"
+              name="email"
+              placeholder="Enter email"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              ref={passwordRef}
               type="password"
               name="password"
               placeholder="Password"
             />
           </Form.Group>
-          {/* <p>{error}</p> */}
+
+          {/* error */}
+          {showError}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
               onClick={() => setAgree(!agree)}
@@ -89,6 +88,7 @@ const Login = () => {
               label="Accept the genius terms and condition"
             />
           </Form.Group>
+
           <Button
             disabled={!agree}
             className="w-50 mx-auto d-block"
@@ -107,7 +107,14 @@ const Login = () => {
               </Link>
             </span>
           </p>
+          <p>
+            Forget Password?{" "}
+            <Button onClick={resetPassword} variant="link">
+              Reset Password
+            </Button>
+          </p>
         </Form>
+
         {/* after & before line */}
         <div className="d-flex align-items-center my-4">
           <div
@@ -120,28 +127,8 @@ const Login = () => {
             className="bg-primary"
           ></div>
         </div>
-        {/* login with others */}
-        <div className="d-block">
-          <button
-            onClick={handleSignInWithGoogle}
-            className="d-block w-100 mt-3 py-2  rounded-pill"
-          >
-            <FaGoogle /> Google Sign In
-          </button>
-          <button
-            onClick={handleFacebookLogin}
-            style={{ background: "#4267B2" }}
-            className="d-block w-100 mt-3 py-2 text-white rounded-pill border "
-          >
-            <FaFacebook /> Facebook Sign In
-          </button>
-          <button
-            onClick={handleSignInWithGithub}
-            className="d-block w-100 mt-3 py-2 border rounded-pill bg-black text-white"
-          >
-            <FaGithub /> Github Sign In
-          </button>
-        </div>
+        {/* login with social media */}
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

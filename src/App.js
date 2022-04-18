@@ -23,11 +23,11 @@ function App() {
         <Route
           path="/checkout"
           element={
-            <Checkout></Checkout>
+            // <Checkout></Checkout>
 
-            // <RequireAuth>
-            //   <Checkout></Checkout>
-            // </RequireAuth>
+            <RequireAuth>
+              <Checkout></Checkout>
+            </RequireAuth>
           }
         ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>

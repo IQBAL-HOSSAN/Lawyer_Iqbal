@@ -14,7 +14,7 @@ const About = () => {
         </div>
         <div className="about-content d-md-flex d-lg-flex gap-5 align-items-center">
           <div className="about-left">
-            <h3>This is Md Iqbal Hossan</h3>
+            <h3 className="mb-4">This is Md Iqbal Hossan</h3>
             <p className="about-text">
               My present goal is to be a skilled full stack web developer. For
               this reason I always try to study and practice web related

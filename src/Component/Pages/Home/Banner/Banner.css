@@ -1,3 +1,7 @@
 .banner-item img{
     height: 600px;
 }
+
+.carousel-caption {
+    bottom: 30% !important;
+}
