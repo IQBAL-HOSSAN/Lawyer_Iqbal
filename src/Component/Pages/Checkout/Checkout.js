@@ -1,8 +1,14 @@
 import React from "react";
 import { Container, Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    toast("Thank you so much for the order.");
+  };
   return (
     <div className="py-5">
       <Container>
@@ -11,10 +17,10 @@ const Checkout = () => {
           <div className="d-flex justify-content-center mb-5 ">
             <div className=" under-line bg-danger"></div>
           </div>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter name" />
+              <Form.Label>Name*</Form.Label>
+              <Form.Control type="text" placeholder="Enter name" required />
             </Form.Group>
             <Form.Label>Country / Region</Form.Label>
             <Form.Select aria-label="Country / Region">
@@ -25,20 +31,21 @@ const Checkout = () => {
             </Form.Select>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Street address</Form.Label>
+              <Form.Label>Street address*</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="House Number and Street address"
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Town / City</Form.Label>
+              <Form.Label>Town / City*</Form.Label>
 
-              <Form.Control type="text" placeholder="Town / City" />
+              <Form.Control type="text" placeholder="Town / City" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>District</Form.Label>
-              <Form.Select aria-label="Country / Region">
+              <Form.Label>District*</Form.Label>
+              <Form.Select aria-label="Country / Region" required>
                 <option>Noakhali</option>
                 <option value="1">Dhaka</option>
                 <option value="2">Cumillah</option>
@@ -46,20 +53,18 @@ const Checkout = () => {
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="number" placeholder="Number" />
+              <Form.Label>Email*</Form.Label>
+              <Form.Control type="email" placeholder="Email" required />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Email" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
+              <Form.Label>Phone*</Form.Label>
+              <Form.Control type="text" placeholder="phone" required />
             </Form.Group>
             <Button variant="primary" type="submit">
               Check Out
             </Button>
           </Form>
+          <ToastContainer />;
         </div>
       </Container>
     </div>
