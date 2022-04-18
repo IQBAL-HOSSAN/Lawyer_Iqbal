@@ -1,3 +1,18 @@
+<h2>Site Name: Lawyer Iqbal</h2>
+
+<h3>Website Live Link: <a>https://assignment-10-lawyer.web.app/</a></h3>
+
+# That technology uses in this site
+
+<ul>
+    <li>Reactjs</li>
+    <li>React Hooks</li>
+    <li>React Router</li>
+    <li>Firebase</li>
+    <li>Firebase Hooks</li>
+    <li>React icons</li>
+    <li>React Bootstrap</li>
+</ul>
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +83,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # independent-service-provider-IQBAL-HOSSAN
