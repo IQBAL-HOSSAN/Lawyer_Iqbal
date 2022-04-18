@@ -12,13 +12,14 @@ const Header = () => {
     signOut(auth);
   };
   return (
-    <header>
+    <header className="">
       <Navbar
         collapseOnSelect
         expand="lg"
         bg="black"
         variant="dark"
         className="py-3 "
+        fixed="top"
       >
         <Container>
           <Navbar.Brand as={Link} to="/">

@@ -4,6 +4,10 @@ import { Accordion, Container } from "react-bootstrap";
 const Blog = () => {
   return (
     <div id="blog-page" className="py-5">
+      <h2 className="text-center mb-4">My Blogs</h2>
+      <div className="d-flex justify-content-center mb-5 ">
+        <div className=" under-line bg-danger"></div>
+      </div>
       <Container>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
