@@ -9,11 +9,11 @@ const Consultation = () => {
       <h3>Call Today For A FREE Consultation</h3>
       <h2>+88-01845-555047</h2>
       <p>
-        We ensure to provide the best consultant in this area. You can easily
-        reach out by phone call.
+        I ensure you to provide the best consultant in this area. You can easily
+        reach out me by phone call.
       </p>
       <a href="#" className="btn btn-dark">
-        Contact Us Now
+        Contact Me Now
       </a>
     </section>
   );

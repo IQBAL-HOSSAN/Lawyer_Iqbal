@@ -3,7 +3,8 @@ import { Container, Row } from "react-bootstrap";
 import Services from "../Services/Services";
 import Banner from "./Banner/Banner";
 import Consultation from "./Consultation/Consultation";
-import Testimonial from "./Testimonial/Testimonial";
+import "./Home.css";
+// import Testimonial from "./Testimonial/Testimonial";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -16,9 +17,13 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <Consultation></Consultation>
       {
         <Container className="py-5">
-          <h2 className="text-center pb-3">Our Services</h2>
+          <h2 className="text-center ">My Services</h2>
+          <div className="d-flex justify-content-center mb-4 ">
+            <div className=" under-line bg-danger"></div>
+          </div>
           <Row xs={1} md={3} className="g-4">
             {Array.from({ length: 1 }).map((_, idx) =>
               services.map((service) => (
@@ -28,7 +33,6 @@ const Home = () => {
           </Row>
         </Container>
       }
-      <Consultation></Consultation>
     </div>
   );
 };

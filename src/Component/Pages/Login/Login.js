@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
@@ -19,8 +19,8 @@ const Login = () => {
   const [signInWithEmailAndPassword, user] =
     useSignInWithEmailAndPassword(auth);
 
-  const [signInWithGoogle, error] = useSignInWithGoogle(auth);
-  console.log(error);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+  // console.log(error);
   const [signInWithGithub] = useSignInWithGithub(auth);
   const [signInWithFacebook] = useSignInWithFacebook(auth);
 
@@ -29,33 +29,38 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    navigate("/services");
-  }
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
 
   const handleSignIn = (event) => {
     event.preventDefault();
 
     setEmail(event.target.email.value);
     setPassword(event.target.password.value);
-    console.log(event.target.email.value);
     signInWithEmailAndPassword(email, password);
 
     navigate(from, { replace: true });
   };
-  // handle sign in with google btn
-  const handleSignInWithGoogle = () => {
-    signInWithGoogle();
-  };
 
-  // Sign In with github
-  const handleSignInWithGithub = () => {
-    signInWithGithub();
+  // handle sign in with google btn
+  const handleSignInWithGoogle = async () => {
+    await signInWithGoogle();
+    navigate("/");
   };
 
   // facebook sign in
-  const handleFacebookLogin = () => {
-    signInWithFacebook();
+  const handleFacebookLogin = async () => {
+    await signInWithFacebook();
+    navigate("/");
+  };
+
+  // Sign In with github
+  const handleSignInWithGithub = async () => {
+    await signInWithGithub();
+    navigate("/");
   };
   return (
     <div className="my-5">
@@ -75,7 +80,7 @@ const Login = () => {
               placeholder="Password"
             />
           </Form.Group>
-          <p>{error}</p>
+          {/* <p>{error}</p> */}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
               onClick={() => setAgree(!agree)}
@@ -92,6 +97,7 @@ const Login = () => {
           >
             Log In
           </Button>
+          {/* <input disabled={!agree} type="submit" /> */}
           <p className="mt-3">
             {" "}
             Create a new account!

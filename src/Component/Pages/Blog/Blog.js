@@ -1,11 +1,7 @@
 import React from "react";
 
 const Blog = () => {
-  return (
-    <div>
-      <h2>this is blog</h2>
-    </div>
-  );
+  return <div id="blog-page" className="py-5"></div>;
 };
 
 export default Blog;

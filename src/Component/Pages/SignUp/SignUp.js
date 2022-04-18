@@ -28,6 +28,7 @@ const SignUp = () => {
   const [sendEmailVerification] = useSendEmailVerification(auth);
 
   const [updateProfile] = useUpdateProfile(auth);
+
   // Sign Up with email and password
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -45,17 +46,21 @@ const SignUp = () => {
   };
 
   // handle sign in with google btn
-  const handleSignInWithGoogle = () => {
-    signInWithGoogle();
+  const handleSignInWithGoogle = async () => {
+    await signInWithGoogle();
+    navigate("/");
+  };
+
+  // facebook sign in
+  const handleFacebookLogin = async () => {
+    await signInWithFacebook();
+    navigate("/");
   };
 
   // Sign In with github
-  const handleSignInWithGithub = () => {
-    signInWithGithub();
-  };
-  // facebook sign in
-  const handleFacebookLogin = () => {
-    signInWithFacebook();
+  const handleSignInWithGithub = async () => {
+    await signInWithGithub();
+    navigate("/");
   };
 
   return (

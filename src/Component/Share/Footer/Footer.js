@@ -8,7 +8,6 @@ import {
   FaLocationArrow,
   FaChevronRight,
 } from "react-icons/fa";
-import Logo from "../../../imgs/logo.png";
 
 const Footer = () => {
   return (
@@ -17,7 +16,9 @@ const Footer = () => {
         <Row>
           <Col>
             <div className="mb-2">
-              <img src={Logo} alt="" />
+              <h3>
+                <i>Lawyer Iqbal</i>
+              </h3>
             </div>
             <div className=" under-line mb-3 bg-danger w-50"></div>
             <div className="text-secondary">
