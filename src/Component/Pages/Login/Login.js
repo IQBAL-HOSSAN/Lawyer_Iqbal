@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Container, Form } from "react-bootstrap";
 import {
@@ -34,6 +34,7 @@ const Login = () => {
     <Spineer></Spineer>;
   }
 
+  console.log(error);
   // display error
   let displayError;
   if (error || resetError) {
@@ -52,11 +53,15 @@ const Login = () => {
     const password = passwordRef.current.value;
 
     await signInWithEmailAndPassword(email, password);
-
-    navigate(from, { replace: true });
-    console.log(email, password);
   };
 
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user]);
+
+  // reset password
   const resetPassword = async () => {
     const email = emailRef.current.value;
     if (email) {
@@ -72,6 +77,7 @@ const Login = () => {
       <Container>
         <h2 className="text-center mb-3 ">Please Log In</h2>
         <div className="col-md-4 col-lg-4 col-10 mx-auto">
+          {displayError}
           <Form onSubmit={handleLogIn} className="">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -128,7 +134,6 @@ const Login = () => {
               </Button>
             </p>
           </Form>
-          {displayError}
           {/* after & before line */}
           <div className="d-flex align-items-center my-4">
             <div

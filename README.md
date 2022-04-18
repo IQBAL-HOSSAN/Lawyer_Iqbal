@@ -11,7 +11,8 @@ Website Live Link: [https://assignment-10-lawyer.web.app/](https://assignment-10
     <li>To know lot of things about different laws</li>
     <li>You can easily reach me through the site.</li>
 </ul>
-# That technology uses in this site
+
+# That technology uses in this site:
 
 <ul>
     <li>Reactjs</li>

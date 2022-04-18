@@ -10,6 +10,9 @@ import {
 import auth from "../../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Spineer from "../../Spinner/Spineer";
 
 const SignUp = () => {
   const [agree, setAgree] = useState(false);
@@ -25,6 +28,22 @@ const SignUp = () => {
 
   const [updateProfile] = useUpdateProfile(auth);
 
+  // error handle
+  let displayError;
+  if (error || VerificationError) {
+    displayError = (
+      <p className="text-danger">
+        {" "}
+        Error: {error?.message} {VerificationError?.message}
+      </p>
+    );
+  }
+
+  // loading
+  if (loading || sending) {
+    <Spineer></Spineer>;
+  }
+
   // Sign Up with email and password
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -36,7 +55,7 @@ const SignUp = () => {
 
     await createUserWithEmailAndPassword(email, password);
     await sendEmailVerification();
-    alert("sending email");
+    toast("sending email");
 
     await updateProfile({ displayName: name });
     navigate("/");
@@ -48,6 +67,8 @@ const SignUp = () => {
         <div className="col-md-4 col-lg-4 col-10 mx-auto">
           <h2 className="text-center mb-3">Please Sign Up</h2>
           <div className=" mx-auto">
+            {/* display error */}
+            {displayError}
             <Form onSubmit={handleFormSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Name</Form.Label>
@@ -117,6 +138,7 @@ const SignUp = () => {
             </div>
             {/* login with others */}
             <SocialLogin></SocialLogin>
+            <ToastContainer />;
           </div>
         </div>
       </Container>
