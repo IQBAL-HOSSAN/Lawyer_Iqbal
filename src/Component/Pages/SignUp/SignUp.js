@@ -70,7 +70,7 @@ const SignUp = () => {
             {/* display error */}
             {displayError}
             <Form onSubmit={handleFormSubmit}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control
                   type="name"
@@ -138,7 +138,7 @@ const SignUp = () => {
             </div>
             {/* login with others */}
             <SocialLogin></SocialLogin>
-            <ToastContainer />;
+            <ToastContainer />
           </div>
         </div>
       </Container>

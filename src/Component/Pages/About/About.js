@@ -1,11 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import aboutImag from "../../../imgs/iqbal-hossan-99-about-img.jpg";
+import PageTitle from "../../Share/PageTitle/PageTitle";
 import "./About.css";
 
 const About = () => {
   return (
     <div id="about-page" className=" py-5">
+      <PageTitle title="About Me"></PageTitle>
+
       <div className="about-banner"></div>
       <Container>
         <h2 className="text-center ">About Me</h2>

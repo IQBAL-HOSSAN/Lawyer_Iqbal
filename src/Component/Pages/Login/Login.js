@@ -34,7 +34,6 @@ const Login = () => {
     <Spineer></Spineer>;
   }
 
-  console.log(error);
   // display error
   let displayError;
   if (error || resetError) {
@@ -148,7 +147,7 @@ const Login = () => {
           </div>
           {/* login with social media */}
           <SocialLogin></SocialLogin>
-          <ToastContainer />;
+          <ToastContainer />
         </div>
       </Container>
     </div>

@@ -1,9 +1,12 @@
 import React from "react";
 import { Accordion, Container } from "react-bootstrap";
+import PageTitle from "../../Share/PageTitle/PageTitle";
 
 const Blog = () => {
   return (
     <div id="blog-page" className="py-5">
+      <PageTitle title="Blog"></PageTitle>
+
       <h2 className="text-center mb-4">My Blogs</h2>
       <div className="d-flex justify-content-center mb-5 ">
         <div className=" under-line bg-danger"></div>

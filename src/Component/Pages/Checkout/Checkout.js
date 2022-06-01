@@ -3,6 +3,7 @@ import { Container, Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PageTitle from "../../Share/PageTitle/PageTitle";
 
 const Checkout = () => {
   const handleSubmit = (event) => {
@@ -11,6 +12,7 @@ const Checkout = () => {
   };
   return (
     <div className="py-5">
+      <PageTitle title="Check Out"></PageTitle>
       <Container>
         <div className="col-md-4 col-lg-4 col-10 mx-auto">
           <h2 className="text-center ">Check Out </h2>
@@ -64,7 +66,7 @@ const Checkout = () => {
               Check Out
             </Button>
           </Form>
-          <ToastContainer />;
+          <ToastContainer />
         </div>
       </Container>
     </div>

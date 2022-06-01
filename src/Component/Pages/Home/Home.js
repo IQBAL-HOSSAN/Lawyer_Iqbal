@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
+import PageTitle from "../../Share/PageTitle/PageTitle";
 import Services from "../Services/Services";
 import Banner from "./Banner/Banner";
 import Consultation from "./Consultation/Consultation";
+import Testimonial from "./Testimonial/Testimonial";
 import "./Home.css";
 // import Testimonial from "./Testimonial/Testimonial";
 
@@ -16,6 +18,7 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <PageTitle title="Home"></PageTitle>
       <Banner></Banner>
       <Consultation></Consultation>
       {
@@ -33,6 +36,7 @@ const Home = () => {
           </Row>
         </Container>
       }
+      <Testimonial />
     </div>
   );
 };
